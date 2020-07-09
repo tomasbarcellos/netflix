@@ -10,7 +10,7 @@ ler_netflix(path)
 \item{path}{Caminho para arquivo com histórico}
 }
 \value{
-Uma \code{\link{tibble, tibble}} com as colunas:
+Uma \code{\link{tibble}} com as colunas:
 
 data: data do registro
 

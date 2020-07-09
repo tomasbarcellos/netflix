@@ -1,0 +1,56 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# netflix
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Travis build status](https://travis-ci.org/tomasbarcellos/netflix.svg?branch=master)](https://travis-ci.org/tomasbarcellos/netflix)
+<!-- badges: end -->
+
+
+## Installation
+
+Para instalar:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("tomasbarcellos/netflix")
+```
+## Example
+
+O pacote permite ler os dados
+
+```{r example}
+library(netflix)
+historico <- ler_netflix("historico.csv")
+```
+
+Após isso os dados estão prontos para serem usados.
+
+```{r emparalhar, echo=FALSE}
+embaralhar <- function(vetor) sample(vetor, length(vetor))
+linhas <- sample(seq_len(nrow(historico)), nrow(historico))
+historico <- historico[linhas, ] %>% 
+  dplyr::mutate(data = embaralhar(data)) %>% 
+  na.omit()
+```
+
+```{r head}
+head(historico)
+```
+
+
+

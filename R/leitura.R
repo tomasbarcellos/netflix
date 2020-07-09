@@ -18,7 +18,7 @@ magrittr::`%>%`
 #' @examples
 #' # ler_netflix("meu_historico.csv")
 ler_netflix <- function(path) {
-  readr::read_csv(path) %>%
+  readr::read_csv(path, col_types = "cc") %>%
     dplyr::mutate(
       data = lubridate::dmy(Date),
       serie = ifelse(stringr::str_count(Title, ":") > 1,
